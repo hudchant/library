@@ -27,3 +27,19 @@ function addBookToLibrary(bookTitle, bookAuthor, numOfPages, readingStatus) {
     return newBook;
 }
 
+document.addEventListener('DOMContentLoaded', function () {
+    const container = document.querySelector('.container'); // Container reference
+    const ul = document.querySelector('ul'); // Ul reference
+    container.appendChild(ul); // Append the ul to the container div
+
+    // For each loop that creates a new li element for each book pushed into myLibrary array
+    myLibrary.forEach(book => {
+        const li = document.createElement('li'); // Create new li
+        li.textContent = book.info(); // Call .info() method from Book object to display books on page
+        ul.appendChild(li); // Append books to ul element
+    });
+});
+
+
+
+
