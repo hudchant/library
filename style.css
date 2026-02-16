@@ -74,7 +74,7 @@ ul {
 /* Book title text inside list items */
 .book-title {
     width: 230px;
-    height: 55px;
+    height: 60px;
     font-size: 16px;
     font-weight: bold;
     letter-spacing: 6px;
@@ -84,6 +84,7 @@ ul {
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
     line-clamp: 3;
+    line-height: 20px;
 }
 
 /* Additional book details inside list items */
