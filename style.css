@@ -22,6 +22,22 @@ ul {
     color: #313131;
 }
 
+/* Select and input form fields */
+select, input {
+    color: #313131;
+    background-color: #f9fafc;
+    border: 6px double rgba(49, 49, 49, 0.4);
+    border-radius: 8px;
+    letter-spacing: 2px;
+    font-size: 16px;
+}
+
+/* Option form field */
+option {
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
 /* List item "cards" */
 .card {
     display: flex;
@@ -32,16 +48,13 @@ ul {
     height: 300px;
     margin: 30px;
     list-style-type: none;
-    border-radius: 3px;
-    border: 1px inset #313131;
-}
-
-/* List item layered box shadows */
-.card {
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1),
-        0 5px 5px rgba(49, 49, 49, 0.3),
-        0 8px 8px rgba(49, 49, 49, 0.3),
-        0 25px 25px rgba(49, 49, 49, 0.2);
+    border: 6px double rgba(49, 49, 49, 0.4);
+    border-radius: 8px;
+    box-shadow: rgba(49, 49, 49, 0.4) 5px 5px,
+        rgba(49, 49, 49, 0.3) 10px 10px,
+        rgba(49, 49, 49, 0.2) 15px 15px,
+        rgba(49, 49, 49, 0.1) 20px 20px,
+        rgba(49, 49, 49, 0.05) 25px 25px;
 }
 
 /* List item cards #1, #4, #7, etc. */
@@ -58,11 +71,22 @@ ul {
 .card:nth-child(3n + 3) {
     background-color: #313131;
     color: #f9fafc;
+    border: 5px double rgb(227, 228, 230);
 }
 
-/* List item cards opacity */
-.card:hover {
-    opacity: 65%;
+/* List item cards #1, #4, #7, etc. opacity */
+.card:nth-child(3n + 1):hover {
+    opacity: 80%;
+}
+
+/* List item cards #2, #5, #8, etc. opacity */
+ .card:nth-child(3n + 2):hover {
+    opacity: 85%;
+}
+
+/* List item cards #3, #6, #9, etc. opacity */
+.card:nth-child(3n + 3):hover {
+    opacity: 90%;
 }
 
 /* Container for book title and details inside book.info() function */
@@ -87,11 +111,100 @@ ul {
     line-height: 20px;
 }
 
-/* Additional book details inside list items */
+/* Style for additional book details inside list items */
 .book-author,
 .num-of-pages,
 .read-or-unread {
     font-size: 12px;
     letter-spacing: 3px;
     line-height: 25px;
+}
+
+/* Button for adding new books to collection */
+.book-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #313131;
+    background-color: #f9fafc;
+    border: 6px double rgba(49, 49, 49, 0.4);
+    width: 245px;
+    height: 50px;
+    border-radius: 8px;
+    padding: 10px;
+    letter-spacing: 5px;
+}
+
+/* Positioning for 'Add New Book' button */
+.btn-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Positioning for plus symbol on 'Add New Book' button */
+.btn-plus {
+    font-size: 2em;
+    color: #008000;
+    margin-right: 10px;
+}
+
+/* Positioning for text inside 'Add New Book' button */
+.add-text {
+    font-size: 1.2em;
+}
+
+/* Style for modal dialog popup, modal submit button, and modal cancel button */
+#modal-dialog, #submit-btn, #cancel-btn {
+    color: #313131;
+    background-color: #f9fafc;
+    border: 6px double rgba(49, 49, 49, 0.4);
+    border-radius: 8px;
+    letter-spacing: 3px;
+}
+
+/* Style for submit and cancel buttons only */
+#submit-btn, #cancel-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #313131;
+    background-color: #f9fafc;
+    border: 6px double rgba(49, 49, 49, 0.4);
+    border-radius: 8px;
+    letter-spacing: 3px;
+    width: 110px;
+    height: 40px;
+    font-size: 14px;
+    padding: 10px;
+    margin: 15px;
+}
+
+/* Style for submit and cancel buttons upon hover */
+#submit-btn:hover, #cancel-btn:hover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #f9fafc;
+    background-color: #313131;
+    border: 6px double rgba(249, 250, 252, 0.4);
+    border-radius: 8px;
+    letter-spacing: 3px;
+    width: 110px;
+    height: 40px;
+    font-size: 14px;
+    padding: 10px;
+    margin: 15px;
+}
+
+/* Positioning for modal dialog buttons */
+.form-btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Style for option elements inside modal dialog */
+#default, #read, #unread {
+    font-size: 16px;
 }

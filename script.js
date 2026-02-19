@@ -43,6 +43,14 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+const bookButton = document.querySelector('.book-btn'); // Reference to the 'Add New Book' button
+const modalDialog = document.querySelector('#modal-dialog'); // Reference to the modal dialog
+
+// Event that opens the modal form when user clicks 'Add New Book' button
+bookButton.addEventListener("click", () => {
+    modalDialog.showModal();
+  });
+
 // Manually add books for testing purposes
 addBookToLibrary('Matilda', 'Roald Dahl', 255, 'Unread');
 addBookToLibrary('The Hunger Games', 'Suzanne Collins', 565, 'Read');
