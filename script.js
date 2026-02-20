@@ -1,5 +1,5 @@
 // Array to hold user's book collection
-const myLibrary = [];
+let myLibrary = [];
 
 // Constructor for book objects
 function Book(title, author, pages, read) {
@@ -24,48 +24,65 @@ function Book(title, author, pages, read) {
 function addBookToLibrary(bookTitle, bookAuthor, numOfPages, readingStatus) {
     // Create new book
     let newBook = new Book(bookTitle, bookAuthor, numOfPages, readingStatus);
+
     // If new book object is created, push it into myLibrary array
     if (newBook) {
         myLibrary.push(newBook);
     }
-    // return new book details
-    return newBook;
+    // Show all books in myLibrary collection
+    showBooks();
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-    // For each loop that creates a new li element for each book pushed into myLibrary array
+// Function for displaying books
+function showBooks() {
+    const ul = document.querySelector('ul'); // Ul reference
+    ul.innerHTML = ''; // Clear ul after adding a book to make way for the next entry
     myLibrary.forEach(book => {
-        const ul = document.querySelector('ul'); // Ul reference
         const li = document.createElement('li'); // Create new li
         li.classList.add('card'); // Create class name for li's to be referenced in css
         li.innerHTML = book.info(); // Call .info() method from Book object to display books on page
         ul.appendChild(li); // Append books to ul element
     });
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    const bookButton = document.querySelector('.book-btn'); // Reference to the 'Add New Book' button
+    const modalDialog = document.querySelector('#modal-dialog'); // Reference to the modal dialog
+    const cancelButton = document.querySelector('#cancel-btn'); // Reference to form cancel button
+    const modalForm = modalDialog.querySelector('form'); // Reference to the form element
+
+    // Event that opens the modal form when user clicks 'Add New Book' button
+    bookButton.addEventListener('click', () => {
+        modalDialog.showModal();
+    });
+
+    // Function for form's submit button
+    modalForm.addEventListener('submit', (event) => {
+        event.preventDefault(); // Stops page from refreshing upon clicking submit button
+
+        // User input fields to be passed to addBookToLibrary function
+        const bookTitle = document.querySelector('#the-title').value;
+        const bookAuthor = document.querySelector('#the-author').value;
+        const bookPages = document.querySelector('#book-pages').value;
+        let readOrNot = document.querySelector('#read-yet').value;
+        readOrNot === 'Yes' ? readOrNot = 'Read' : readOrNot = 'Unread';
+        // Call function to add a new book
+        addBookToLibrary(bookTitle, bookAuthor, bookPages, readOrNot);
+
+        // Close and reset modal dialog form
+        modalDialog.close();
+        modalForm.reset();
+    });
+
+    // Close modal dialog when cancel button is clicked
+    cancelButton.addEventListener('click', () => {
+        modalDialog.close();
+    });
 });
 
-const bookButton = document.querySelector('.book-btn'); // Reference to the 'Add New Book' button
-const modalDialog = document.querySelector('#modal-dialog'); // Reference to the modal dialog
 
-// Event that opens the modal form when user clicks 'Add New Book' button
-bookButton.addEventListener("click", () => {
-    modalDialog.showModal();
-  });
 
-// Manually add books for testing purposes
-addBookToLibrary('Matilda', 'Roald Dahl', 255, 'Unread');
-addBookToLibrary('The Hunger Games', 'Suzanne Collins', 565, 'Read');
-addBookToLibrary('Divergent', 'Veronica Roth', 478, 'Read');
-addBookToLibrary('Chronicles of Narnia: The Lion, The Witch, and the Wardrobe', 'An Author', 478, 'Read');
-addBookToLibrary('Walk Two Moons', 'Some Author', 255, 'Unread');
-addBookToLibrary('Walk Two Moons', 'Some Author', 255, 'Unread');
-addBookToLibrary('This is a really long book title, a super long book title', 'Some Author', 255, 'Unread');
-addBookToLibrary('Walk Two Moons', 'Some Author', 255, 'Unread');
-addBookToLibrary('Walk Two Moons', 'Some Author', 255, 'Unread');
-addBookToLibrary('Walk Two Moons', 'Some Author', 255, 'Unread');
-addBookToLibrary('Walk Two Moons', 'Some Author', 255, 'Unread');
-addBookToLibrary('Walk Two Moons', 'Some Author', 255, 'Unread');
 
-console.log(myLibrary);
 
 
 

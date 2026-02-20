@@ -20,7 +20,7 @@
           <!-- Book Title -->
           <label>
             Title:
-            <input type="text" required />
+            <input type="text" id="the-title" required />
           </label>
         </p>
 
@@ -28,7 +28,7 @@
           <!-- Book Author -->
           <label>
             Author:
-            <input type="text" required />
+            <input type="text" id="the-author" required />
           </label>
         </p>
 
@@ -36,7 +36,7 @@
           <!-- Number of Book Pages -->
           <label>
             Number of Pages:
-            <input type="number" min="1" required />
+            <input type="number" min="1" id="book-pages" required />
           </label>
         </p>
 
@@ -45,16 +45,16 @@
           <label>
             Have you read this book yet?
             <select id="read-yet">
-              <option id="default" value="default">Select one: </option>
-              <option id="read">Yes</option>
-              <option id="unread">No</option>
+              <option>Select one:</option>
+              <option>Yes</option>
+              <option>No</option>
             </select>
           </label>
         </p>
         <!-- Submit and cancel buttons for modal dialog -->
         <div class="form-btns">
-          <button id="submit-btn" value="default">Submit</button>
-          <button id="cancel-btn" value="cancel-btn" formmethod="dialog">Cancel</button>
+          <button id="submit-btn" type="submit" value="default">Submit</button>
+          <button id="cancel-btn" type='button' value="cancel-btn">Cancel</button>
         </div>
       </form>
     </dialog>
