@@ -23,7 +23,8 @@ ul {
 }
 
 /* Select and input form fields */
-select, input {
+select,
+input {
     color: #313131;
     background-color: #f9fafc;
     border: 6px double rgba(49, 49, 49, 0.4);
@@ -80,7 +81,7 @@ option {
 }
 
 /* List item cards #2, #5, #8, etc. opacity */
- .card:nth-child(3n + 2):hover {
+.card:nth-child(3n + 2):hover {
     opacity: 85%;
 }
 
@@ -135,6 +136,11 @@ option {
     letter-spacing: 5px;
 }
 
+/* New book button hover effects */
+.book-btn:hover {
+    opacity: 80%;
+}
+
 /* Positioning for 'Add New Book' button */
 .btn-section {
     display: flex;
@@ -155,7 +161,9 @@ option {
 }
 
 /* Style for modal dialog popup, modal submit button, and modal cancel button */
-#modal-dialog, #submit-btn, #cancel-btn {
+#modal-dialog,
+#submit-btn,
+#cancel-btn {
     color: #313131;
     background-color: #f9fafc;
     border: 6px double rgba(49, 49, 49, 0.4);
@@ -164,7 +172,8 @@ option {
 }
 
 /* Style for submit and cancel buttons only */
-#submit-btn, #cancel-btn {
+#submit-btn,
+#cancel-btn {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -181,7 +190,8 @@ option {
 }
 
 /* Style for submit and cancel buttons upon hover */
-#submit-btn:hover, #cancel-btn:hover {
+#submit-btn:hover,
+#cancel-btn:hover {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -204,7 +214,36 @@ option {
     align-items: center;
 }
 
+/* Red 'X' delete button */
+.delete-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #e50000;
+    font-size: 1.5em;
+    border-style: none;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    background-color: rgba(49, 49, 49, 0);
+}
+
+/* Red 'X' delete button hover effects */
+.delete-btn:hover {
+    font-size: 2em;
+}
+
+/* Delete button div */
+.remove-book {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
 /* Style for option elements inside modal dialog */
-#default, #read, #unread {
+#default,
+#read,
+#unread {
     font-size: 16px;
 }
