@@ -75,19 +75,14 @@ option {
     border: 5px double rgb(227, 228, 230);
 }
 
-/* List item cards #1, #4, #7, etc. opacity */
-.card:nth-child(3n + 1):hover {
-    opacity: 80%;
-}
-
-/* List item cards #2, #5, #8, etc. opacity */
-.card:nth-child(3n + 2):hover {
+/* List item cards #1, #4, #7, etc. opacity and List item cards #2, #5, #8, etc. opacity */
+.card:nth-child(3n + 1):hover, .card:nth-child(3n + 2):hover {
     opacity: 85%;
 }
 
 /* List item cards #3, #6, #9, etc. opacity */
 .card:nth-child(3n + 3):hover {
-    opacity: 90%;
+    opacity: 95%;
 }
 
 /* Container for book title and details inside book.info() function */
@@ -219,7 +214,7 @@ option {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #e50000;
+    color: #ff2800;
     font-size: 1.5em;
     border-style: none;
     width: 40px;
@@ -231,6 +226,7 @@ option {
 /* Red 'X' delete button hover effects */
 .delete-btn:hover {
     font-size: 2em;
+    font-weight: 700;
 }
 
 /* Delete button div */
@@ -239,6 +235,19 @@ option {
     justify-content: center;
     align-items: center;
     margin-top: 50px;
+}
+
+.status-btn {
+    border-style: none;
+    background-color: rgba(0, 0, 0, 0);
+    color: #7f7f7f;
+    font-weight: 600;
+    font-size: 1.3em;
+}
+
+.status-btn:hover {
+    text-decoration: underline;
+    font-size: 1.5em;
 }
 
 /* Style for option elements inside modal dialog */

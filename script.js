@@ -15,7 +15,7 @@ function Book(title, author, pages, read) {
         <div class='book-title'>${this.title}</div> 
         <div class='book-author'>by ${this.author}</div>
         <div class='num-of-pages'>${this.pages} pages</div>
-        <div class='read-or-unread'>${this.read}</div>
+        <div class='read-or-unread'><button class='status-btn'>${this.read}</button></div>
         <div class='remove-book'><button class='delete-btn'>X</div></div>
         </div>`;
     }
@@ -34,6 +34,11 @@ function addBookToLibrary(bookTitle, bookAuthor, numOfPages, readingStatus) {
     showBooks();
 }
 
+// Book prototype function that toggles a book instance’s read status
+Book.prototype.updateStatus = function() {
+    this.read = this.read === 'Read' ? 'Unread' : 'Read';
+}
+
 // Function for displaying books
 function showBooks() {
     const ul = document.querySelector('ul'); // Ul reference
@@ -48,7 +53,16 @@ function showBooks() {
         deleteButton.addEventListener('click', () => {
             // When a book's delete button is clicked, delete book at that particular index of myLibrary array
             myLibrary.splice(index, 1);
-            showBooks(); // Refresh the book display after book has been deleted
+            showBooks(); // Refresh book display
+        }); 
+
+        const statusButton = li.querySelector('.status-btn'); // Reference to status button
+        statusButton.addEventListener('click', () => {
+            // Variable to determine index of current book when button is clicked
+            let currentBook = myLibrary[index];
+            // Call prototype function to update book status upon button click
+            currentBook.updateStatus();
+            showBooks(); // Refresh book display
         });
     });
 }
@@ -85,8 +99,9 @@ document.addEventListener('DOMContentLoaded', function () {
     // Close modal dialog when cancel button is clicked
     cancelButton.addEventListener('click', () => {
         modalDialog.close();
-    });
+    });   
 });
+
 
 
 
