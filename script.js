@@ -1,25 +1,28 @@
 // Array to hold user's book collection
 let myLibrary = [];
 
-// Constructor for book objects
-function Book(title, author, pages, read) {
+// Book class
+class Book {
+    constructor(title, author, pages, read) {
+        this.id = crypto.randomUUID();
+        this.title = title; // Book title
+        this.author = author; // Book author
+        this.pages = pages; // Number of pages
+        this.read = read; // Whether or not the book has been read yet
+    }
 
-    this.id = crypto.randomUUID();
-    this.title = title; // Book title
-    this.author = author; // Book author
-    this.pages = pages; // Number of pages
-    this.read = read; // Whether or not the book has been read yet
-
-    this.info = function () { // Function that returns all book details
+    // Method that returns all book details
+    info() {
         return `<div class='book-entry'>
-        <div class='book-title'>${this.title}</div> 
-        <div class='book-author'>by ${this.author}</div>
-        <div class='num-of-pages'>${this.pages} pages</div>
-        <div class='read-or-unread'><button class='status-btn'>${this.read}</button></div>
-        <div class='remove-book'><button class='delete-btn'>X</div></div>
-        </div>`;
+            <div class='book-title'>${this.title}</div> 
+            <div class='book-author'>by ${this.author}</div>
+            <div class='num-of-pages'>${this.pages} pages</div>
+            <div class='read-or-unread'><button class='status-btn'>${this.read}</button></div>
+            <div class='remove-book'><button class='delete-btn'>X</div>
+            </div>`;
     }
 }
+
 
 // Function for creating new books and storing them
 function addBookToLibrary(bookTitle, bookAuthor, numOfPages, readingStatus) {
@@ -35,7 +38,7 @@ function addBookToLibrary(bookTitle, bookAuthor, numOfPages, readingStatus) {
 }
 
 // Book prototype function that toggles a book instance’s read status
-Book.prototype.updateStatus = function() {
+Book.prototype.updateStatus = function () {
     this.read = this.read === 'Read' ? 'Unread' : 'Read';
 }
 
@@ -54,7 +57,7 @@ function showBooks() {
             // When a book's delete button is clicked, delete book at that particular index of myLibrary array
             myLibrary.splice(index, 1);
             showBooks(); // Refresh book display
-        }); 
+        });
 
         const statusButton = li.querySelector('.status-btn'); // Reference to status button
         statusButton.addEventListener('click', () => {
@@ -99,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Close modal dialog when cancel button is clicked
     cancelButton.addEventListener('click', () => {
         modalDialog.close();
-    });   
+    });
 });
 
 
